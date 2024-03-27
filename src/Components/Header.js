@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
@@ -27,13 +28,12 @@ const Header = () => {
       </a>
   </Link>
 
-{/*
-  <Link to={'/cart'}>
+
+  <Link to={'/user'}>
     <Button className="text-white  me-3" type="submit">
-      <ShoppingCart></ShoppingCart>{" "}
-      <b>{cartArray.length}</b>
+      Users
       </Button>
-    </Link> */}
+    </Link> 
 
 
 

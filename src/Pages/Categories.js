@@ -7,14 +7,15 @@ import { Link } from 'react-router-dom';
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
-    //api call
+
   
     const getAllCategories = async () => {
       const result = await axios.get("https://api.escuelajs.co/api/v1/categories");
-      console.log(result.data);
+      // console.log(result.data);
       setCategories(result.data);
-      console.log(categories);
+      // console.log(categories);
     };
+    
   
     //to load all contact details while open home page
     useEffect(() => {
@@ -28,7 +29,7 @@ const Categories = () => {
           categories.map((i) => (
             <Col lg={4} md={4}>
                  <Link key={i.id}
-                to={`/singlecat/${i.id}/products`}
+                to={`/singlecat/${i.id}`}
                 style={{ textDecoration: "none" }}
               >
            <Card className='d-flex justify-content-center' style={{ width: '100%', marginTop:"20px",height:"500px",marginBottom:"20px" }}>
@@ -42,7 +43,7 @@ const Categories = () => {
                        
                         <Button variant="primary" >Add To cart</Button>
                       
-                            {/* <Heart className='text-danger ms-3' onClick={()=>{dispatch(addTowishlist(item))}}></Heart> */}
+                        
                        
                     </Card.Body>
                 </Card>
