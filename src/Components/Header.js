@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -12,22 +13,21 @@ const Header = () => {
 <div class="collapse navbar-collapse" id="navbarColor01">
   <ul class="navbar-nav me-auto">
     <li class="nav-item">
-      {/* <Link to={""} style={{textDecoration:"none"}}>
+     <Link to={""} style={{textDecoration:"none"}}>
       <a class="nav-link active" >Home
         <span class="visually-hidden">(current)</span>
       </a>
-      </Link> */}
+      </Link>
     
     </li>
   </ul>
-  {/* <Link to={"/wishlist"}>
-  <Button>
-    <Heart className='text-danger'></Heart>{" "}
-    <b>{wishlistArray.length}</b>
-  </Button>
+   <Link to={"/category"} style={{textDecoration:"none"}}>
+   <a class="nav-link active" >Categories
+        <span class="visually-hidden">(current)</span>
+      </a>
   </Link>
 
-
+{/*
   <Link to={'/cart'}>
     <Button className="text-white  me-3" type="submit">
       <ShoppingCart></ShoppingCart>{" "}

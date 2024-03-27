@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import Home from './Pages/Home';
 import Viewsingle from './Pages/Viewsingle';
 import { useParams } from 'react-router-dom';
+import Categories from './Pages/Categories';
 function App() {
   
   return (
@@ -14,6 +15,8 @@ function App() {
     <Routes>
       <Route path='' element={<Home/>}/>
       <Route path='/single/:id' element={<Viewsingle/>}/>
+      <Route path='/category' element={<Categories/>}/>
+      <Route path='/singlecat/:id/products' element={<Viewsingle/>}/>
     </Routes>
     <Footer/>
     </div>
