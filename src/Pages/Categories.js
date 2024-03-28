@@ -1,4 +1,3 @@
-// Categories.js
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
@@ -40,7 +39,7 @@ const Categories = () => {
                     <Card.Img style={{ width: "100%", height: "300px", padding: "20px" }} variant="top" src={category.image} alt={category.name} />
                     <Card.Body>
                       <Card.Title>{category.name}</Card.Title>
-                      <Button variant="primary">Add To Cart</Button>
+                      <Button variant="secondary">View More...</Button>
                     </Card.Body>
                   </Card>
                 </Link>

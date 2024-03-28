@@ -10,7 +10,7 @@ const SingleCategory = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("nnnnnnnnnn");
+   
     const fetchProducts = async () => {
       try {
         const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${id}/products`);

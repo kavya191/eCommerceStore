@@ -10,7 +10,7 @@ const Viewsingle = () => {
   const fetchProduct = async () => {
     try {
       const response = await axios.get(
-        `https://api.escuelajs.co/api/v1/products`
+        `https://api.escuelajs.co/api/v1/products/`
       );
       setProduct(response.data);
     } catch (error) {
@@ -27,8 +27,9 @@ const Viewsingle = () => {
   return (
     <div>
       {products ? (
-        <Card style={{ width: "100%" }}>
-          <Card.Img variant="top" src={products.images} style={{ width: "20rem", display:"flex", justifyContent:"center",alignItems:"center" }} />
+        <Card style={{ width: "100%" , height:"600px", display:"flex", justifyContent:"center",alignItems:"center", marginTop:"10px",paddingTop:"10px" }}>
+          <Card.Img variant="top" src={products.images} 
+          style={{ width: "20rem", display:"flex", justifyContent:"center",alignItems:"center" }} />
           <Card.Body>
             <Card.Title>{products.title}</Card.Title>
             <Card.Text>{products.description}</Card.Text>
