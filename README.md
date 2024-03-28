@@ -1,10 +1,41 @@
-# Getting Started with Create React App
+# E-commerce Store build with React Js and Redux Toolkit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create a simple eCommerce website using React or Next js that allows users to browse products, view product details, view category and users by given api
+Technical -REACT ,REDUX TOOLKIT,JS,REACT-BOOTSTRAP,REACT ICONS,HOOKS,FUNCTIONAL COMPONENTS
+Requirements:
+# Product list page (Product List)
+Display a list of products fetched from a mock API 
+Each product should display its name, price, and an "Add to Cart" button.
+Clicking on a product should navigate to its corresponding product details page.
 
-## Available Scripts
+# Product Details Page (ProductDetails):
+Fetch all product details form API
+Display detailed information about a selected product, including its name, description, price, and image.
+Provide an "Add to Cart" button to add the product to the shopping cart.
 
-In the project directory, you can run:
+# Category list page(Category list):
+Display a list of category fetched from a mock API
+Each product should display its name, image.
+Clicking on a Category should navigate to its corresponding product list page, which will show all products of particular category
+
+# Product list page based category
+Display a list of products fetched from a mock API 
+Each product should display its name, price, and an "Add to Cart" button.
+Clicking on a product should navigate to its corresponding product details page.
+
+# User list page(Users List):
+Display a list of users fetched from a mock API 
+Each users should display its name, email, avatar 
+
+# Screenshots
+
+![Allproducts](https://github.com/kavya191/eCommerceStore/assets/71579004/1dc64330-8707-4c04-bce9-f13b969d67eb)
+![singleproduct](https://github.com/kavya191/eCommerceStore/assets/71579004/4055c0fa-0b50-4251-8508-f703acc76889)
+![category](https://github.com/kavya191/eCommerceStore/assets/71579004/b4bc5b35-12eb-4ccd-bce9-5e06e4d155c6)
+![productByCategory](https://github.com/kavya191/eCommerceStore/assets/71579004/10c7ff68-2724-46c6-9ddf-1da622e5d7f9)
+![userList](https://github.com/kavya191/eCommerceStore/assets/71579004/1f4957f1-a318-4380-abde-6a980a8c00de)
+
+
 
 ### `npm start`
 
