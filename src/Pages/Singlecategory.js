@@ -45,7 +45,7 @@ const SingleCategory = () => {
                   style={{
                     width: "100%",
                     marginTop: "20px",
-                    height: "400px",
+                    height: "500px",
                     marginBottom: "20px",
                   }}
                 >

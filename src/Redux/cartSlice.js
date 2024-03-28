@@ -10,7 +10,7 @@ const cartSlice = createSlice({
   },
 });
 
-//to export addTocart action
+
 export const { addTocart } = cartSlice.actions;
-//to export reducers
+
 export default cartSlice.reducer;

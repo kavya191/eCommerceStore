@@ -8,16 +8,16 @@ export const fetchProducts=createAsyncThunk('productList/fetchProducts',async()=
     return data
 })
 
-//create slice
+
 const productSlice=createSlice({
     name:'productList',
     initialState:{
-        loading:false, //show pendind
-        allProduct:[],//fullfilled ,store fetched data
-        error:''//show error rejected
+        loading:false, 
+        allProduct:[],
+        error:''
     },
     extraReducers:(builder)=>{
-        //action
+     
         builder.addCase(fetchProducts.pending,(state)=>{
             state.loading=true
         })
