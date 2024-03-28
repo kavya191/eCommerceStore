@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
+import { BaseUrl } from "../Constants/constant";
 
 const Viewsingle = () => {
   const { id } = useParams();
@@ -10,7 +10,7 @@ const Viewsingle = () => {
   const fetchProduct = async () => {
     try {
       const response = await axios.get(
-        `https://api.escuelajs.co/api/v1/products/`
+        `${BaseUrl}/products/`
       );
       setProduct(response.data);
     } catch (error) {

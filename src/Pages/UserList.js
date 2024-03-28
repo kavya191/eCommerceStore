@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
-
+import { BaseUrl } from "../Constants/constant";
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +14,7 @@ const UserList = () => {
 
       try {
         const response = await axios.get(
-          "https://api.escuelajs.co/api/v1/users"
+          `${BaseUrl}/users`
         );
         setUsers(response.data);
       } catch (error) {

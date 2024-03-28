@@ -32,8 +32,7 @@ const Header = () => {
                   </a>
                 </Link>
               </li>
-            </ul>
-
+              
             <Link
               to={"/category"}
               style={{ textDecoration: "none", marginRight: "10px" }}
@@ -54,6 +53,8 @@ const Header = () => {
                 Users
               </p>
             </Link>
+            </ul>
+
           </div>
         </div>
       </nav>

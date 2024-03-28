@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BaseUrl } from "../Constants/constant";
 
 export const fetchProducts=createAsyncThunk('productList/fetchProducts',async()=>{
  
-    const {data}=await axios('https://api.escuelajs.co/api/v1/products')
+    const {data}=await axios(`${BaseUrl}/products`)
     return data
 })
 

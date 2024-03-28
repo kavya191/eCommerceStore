@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { BaseUrl } from '../Constants/constant';
+
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,7 +11,7 @@ const Categories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("https://api.escuelajs.co/api/v1/categories");
+        const response = await axios.get(`${BaseUrl}/categories`);
         setCategories(response.data);
         console.log('====================================');
         console.log(response.data);

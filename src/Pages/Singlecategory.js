@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { BaseUrl } from "../Constants/constant";
 
 const SingleCategory = () => {
   const { id } = useParams();
@@ -13,7 +14,7 @@ const SingleCategory = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `https://api.escuelajs.co/api/v1/categories/${id}/products`
+          `${BaseUrl}/categories/${id}/products`
         );
         setProducts(response.data);
         console.log("====================================");
