@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-
+import { FaCartShopping } from "react-icons/fa6";
 const Header = () => {
   return (
     <div >
@@ -21,17 +21,19 @@ const Header = () => {
       </Link>
     
     </li>
+    
   </ul>
-   <Link to={"/category"} style={{textDecoration:"none"}}>
+  
+   <Link to={"/category"} style={{textDecoration:"none", marginRight:"10px"}}>
    <a class="nav-link active" >Categories
         <span class="visually-hidden">(current)</span>
       </a>
   </Link>
-
+  <FaCartShopping className='text-white me-4' />
 
   <Link to={'/user'}>
     <Button className="text-white  me-3" type="submit">
-      Users
+      Users 
       </Button>
     </Link> 
 

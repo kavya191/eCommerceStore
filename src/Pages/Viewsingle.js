@@ -28,12 +28,12 @@ const Viewsingle = () => {
     <div>
       {products ? (
         <Card style={{ width: "100%" }}>
-          <Card.Img variant="top" src={products.images} style={{ width: "20rem", display:"flex", alignItems:"center" }} />
+          <Card.Img variant="top" src={products.images} style={{ width: "20rem", display:"flex", justifyContent:"center",alignItems:"center" }} />
           <Card.Body>
             <Card.Title>{products.title}</Card.Title>
             <Card.Text>{products.description}</Card.Text>
             <Card.Text>Price : ${products.price}</Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+           
           </Card.Body>
         </Card>
       ) : (

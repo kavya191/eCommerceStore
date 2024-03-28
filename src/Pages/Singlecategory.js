@@ -1,66 +1,58 @@
+// SingleCategory.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 const SingleCategory = () => {
-  const [allProduct, setAllProduct] = useState([]);
-  const { id } = useParams(); // Extract category ID from URL
+  const { id } = useParams();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getAllProducts = async () => {
+    console.log("nnnnnnnnnn");
+    const fetchProducts = async () => {
       try {
         const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${id}/products`);
-        setAllProduct(response.data);
+        setProducts(response.data);
         console.log('====================================');
         console.log(response.data);
-        console.log(allProduct[id]);
         console.log('====================================');
       } catch (error) {
         console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    getAllProducts();
-  }, [id]); 
+    fetchProducts();
+  }, []);
 
   return (
-    <div>
-      <Container>
-        <h1>Products in Category: {id}</h1> 
+    <Container>
+      <h1>Products in Category: {id}</h1>
+      {loading ? (
+        <p>loading.....</p>
+      ) : (
         <Row>
-          {allProduct.length > 0 ? (
-            allProduct.map((product) => (
+          {products.length > 0 ? (
+            products.map(product => (
               <Col lg={4} md={4} key={product.id}>
-                <Card
-                  className="d-flex justify-content-center"
-                  style={{
-                    width: '100%',
-                    marginTop: '20px',
-                    height: '500px',
-                    marginBottom: '20px',
-                  }}
-                >
-                  <Card.Img
-                    style={{ width: '100%', height: '300px', padding: '20px' }}
-                    variant="top"
-                    src={product.images}
-                    alt={product.title}
-                  />
+                <Card className="d-flex justify-content-center" style={{ width: '100%', marginTop: '20px', height: '500px', marginBottom: '20px' }}>
+                  <Card.Img style={{ width: '100%', height: '300px', padding: '20px' }} variant="top"
+                   src={product.image && product.image.length > 0 ? product.image: ''} alt={product.title} />
                   <Card.Body>
                     <Card.Title>{product.title}</Card.Title>
-                  
                   </Card.Body>
                 </Card>
               </Col>
             ))
           ) : (
-            <h1>No Products Found</h1>
+            <p>No products found in this category.</p>
           )}
         </Row>
-      </Container>
-    </div>
+      )}
+    </Container>
   );
 };
 

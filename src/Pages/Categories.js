@@ -1,63 +1,58 @@
+// Categories.js
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { Container, Row,Col } from 'react-bootstrap'
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
 const Categories = () => {
-    const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  
-    const getAllCategories = async () => {
-      const result = await axios.get("https://api.escuelajs.co/api/v1/categories");
-      // console.log(result.data);
-      setCategories(result.data);
-      // console.log(categories);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get("https://api.escuelajs.co/api/v1/categories");
+        setCategories(response.data);
+        console.log('====================================');
+        console.log(response.data);
+        console.log('====================================');
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      } finally {
+        setLoading(false);
+      }
     };
-    
-  
-    //to load all contact details while open home page
-    useEffect(() => {
-      getAllCategories();
-    }, []);
-  return (
-    <div>
-       <Container >
-        <Row>
-        {categories.length > 0 ? (
-          categories.map((i) => (
-            <Col lg={4} md={4}>
-                 <Link key={i.id}
-                to={`/singlecat/${i.id}`}
-                style={{ textDecoration: "none" }}
-              >
-           <Card className='d-flex justify-content-center' style={{ width: '100%', marginTop:"20px",height:"500px",marginBottom:"20px" }}>
-                    <Card.Img style={{width:"100%",height:"300px",padding:"20px"}} variant="top" src={i.image} />
-                    <Card.Body>
-                        <Card.Title>
-                        {i.name}
-                        </Card.Title>
-                        
-                        <Card.Text></Card.Text>
-                       
-                        <Button variant="primary" >Add To cart</Button>
-                      
-                        
-                       
-                    </Card.Body>
-                </Card>
-                </Link>
-            </Col>
-               ))
-               ) : (
-                 <h1>No product Found</h1>
-               )}  
-     
-        </Row>
-    </Container>
-    </div>
-  )
-}
 
-export default Categories
+    fetchCategories();
+  }, []);
+
+  return (
+    <Container>
+      <h1>Categories</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <Row>
+          {categories.length > 0 ? (
+            categories.map(category => (
+              <Col lg={4} md={4} key={category.id}>
+                <Link to={`/singlecat/${category.id}`} style={{ textDecoration: "none" }}>
+                  <Card className="d-flex justify-content-center" style={{ width: '100%', marginTop: "20px", height: "500px", marginBottom: "20px" }}>
+                    <Card.Img style={{ width: "100%", height: "300px", padding: "20px" }} variant="top" src={category.image} alt={category.name} />
+                    <Card.Body>
+                      <Card.Title>{category.name}</Card.Title>
+                      <Button variant="primary">Add To Cart</Button>
+                    </Card.Body>
+                  </Card>
+                </Link>
+              </Col>
+            ))
+          ) : (
+            <p>No categories found.</p>
+          )}
+        </Row>
+      )}
+    </Container>
+  );
+};
+
+export default Categories;
