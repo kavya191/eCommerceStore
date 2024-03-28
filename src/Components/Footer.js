@@ -3,7 +3,7 @@ import { FaCartShopping } from "react-icons/fa6";
 const Footer = () => {
   return (
     <div>
-      <div className="bg-secondary  p-1  text-center">
+      <div className="bg-secondary  p-1  text-center fixed-bottom">
         <p className="text-white pt-2">
           All rights reserved @ <FaCartShopping />{" "}
         </p>
