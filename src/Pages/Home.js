@@ -8,16 +8,12 @@ import { fetchProducts } from "../Redux/productSlice";
 import { addTocart } from "../Redux/cartSlice";
 
 const Home = () => {
-  
   const dispatch = useDispatch();
 
-  const { allProduct, loading, error } = useSelector(
-    (state) => state.productSlice
-  );
+  const { allProduct } = useSelector((state) => state.productSlice);
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
-
 
   return (
     <div>
@@ -38,14 +34,17 @@ const Home = () => {
                   <Card.Img
                     style={{ width: "100%", height: "300px", padding: "20px" }}
                     variant="top"
-                    src={i.images}
+                    src={
+                      i.images ? i.images : "https://i.imgur.com/QkIa5tT.jpeg"
+                    }
+                    alt={i.title}
                   />
                   <Card.Body>
                     <Card.Title>{i.title}</Card.Title>
 
                     <Card.Text> ${i.price}</Card.Text>
                     <Button
-                      variant="secondary" 
+                      variant="secondary"
                       className="me-4"
                       onClick={() => {
                         dispatch(addTocart(i));
@@ -59,7 +58,6 @@ const Home = () => {
                     >
                       <Button variant="primary">Single View</Button>
                     </Link>
-                   
                   </Card.Body>
                 </Card>
               </Col>

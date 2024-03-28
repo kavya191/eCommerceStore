@@ -32,29 +32,28 @@ const Header = () => {
                   </a>
                 </Link>
               </li>
-              
-            <Link
-              to={"/category"}
-              style={{ textDecoration: "none", marginRight: "10px" }}
-            >
-              <p class="nav-link active" className="text-white me-3">
-                Categories
-                <span class="visually-hidden">(current)</span>
-              </p>
-            </Link>
-            <a className="me-4 text-decoration-none">
-              {" "}
-              <FaCartShopping className="text-white " />{" "}
-              <b>{cartArray.length}</b>
-            </a>
 
-            <Link to={"/user"} className="text-decoration-none">
-              <p className="text-white  me-3 " type="submit">
-                Users
-              </p>
-            </Link>
+              <Link
+                to={"/category"}
+                style={{ textDecoration: "none", marginRight: "10px" }}
+              >
+                <p class="nav-link active" className="text-white me-3">
+                  Categories
+                  <span class="visually-hidden">(current)</span>
+                </p>
+              </Link>
+              <a className="me-4 text-decoration-none">
+                {" "}
+                <FaCartShopping className="text-white " />{" "}
+                <b>{cartArray.length}</b>
+              </a>
+
+              <Link to={"/user"} className="text-decoration-none">
+                <p className="text-white  me-3 " type="submit">
+                  Users
+                </p>
+              </Link>
             </ul>
-
           </div>
         </div>
       </nav>

@@ -13,9 +13,7 @@ const UserList = () => {
       setError(null);
 
       try {
-        const response = await axios.get(
-          `${BaseUrl}/users`
-        );
+        const response = await axios.get(`${BaseUrl}/users`);
         setUsers(response.data);
       } catch (error) {
         setError(error);
@@ -49,7 +47,10 @@ const UserList = () => {
                 <td>{i.name}</td>
                 <td>{i.email}</td>
                 <td>
-                  <img src={i.avatar} style={{ height: "70px",width:"70px" }}></img>
+                  <img
+                    src={i.avatar}
+                    style={{ height: "70px", width: "70px" }}
+                  ></img>
                 </td>
               </tr>
             ))

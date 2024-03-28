@@ -2,10 +2,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { BaseUrl } from "../Constants/constant";
+import { useDispatch } from "react-redux";
+import { addTocart } from "../Redux/cartSlice";
 
 const SingleCategory = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,9 +20,6 @@ const SingleCategory = () => {
           `${BaseUrl}/categories/${id}/products`
         );
         setProducts(response.data);
-        console.log("====================================");
-        console.log(response.data);
-        console.log("====================================");
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -53,14 +53,22 @@ const SingleCategory = () => {
                     style={{ width: "100%", height: "300px", padding: "20px" }}
                     variant="top"
                     src={
-                      product.image && product.image.length > 0
-                        ? product.image
+                      product.images && product.images.length > 0
+                        ? product.images[1]
                         : ""
                     }
                     alt={product.title}
                   />
                   <Card.Body>
                     <Card.Title>{product.title}</Card.Title>
+                    <Card.Title>${product.price}</Card.Title>
+                    <Button
+                      onClick={() => {
+                        dispatch(addTocart(product));
+                      }}
+                    >
+                      Add To Cart
+                    </Button>
                   </Card.Body>
                 </Card>
               </Col>

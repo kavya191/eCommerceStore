@@ -16,8 +16,6 @@ const productSlice=createSlice({
         allProduct:[],//fullfilled ,store fetched data
         error:''//show error rejected
     },
-    
-   
     extraReducers:(builder)=>{
         //action
         builder.addCase(fetchProducts.pending,(state)=>{
