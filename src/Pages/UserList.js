@@ -49,7 +49,7 @@ const UserList = () => {
                 <td>{i.name}</td>
                 <td>{i.email}</td>
                 <td>
-                  <img src={i.avatar} style={{ height: "70px" }}></img>
+                  <img src={i.avatar} style={{ height: "70px",width:"70px" }}></img>
                 </td>
               </tr>
             ))
