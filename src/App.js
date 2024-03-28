@@ -19,7 +19,7 @@ function App() {
       <Route path='/single/:id' element={<Viewsingle/>}/>
       <Route path='/category' element={<Categories/>}/>
       <Route path='/singlecat/:id' element={<SingleCategory/>}/>
-      <Route path='user' element={<UserList/>}/>
+      <Route path='/user' element={<UserList/>}/>
     </Routes>
     <Footer/>
     </div>
