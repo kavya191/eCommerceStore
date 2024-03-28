@@ -6,7 +6,7 @@ const Header = () => {
   const cartArray = useSelector((state) => state.cartReducer);
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-secondary fixed-top" data-bs-theme="dark">
+      <nav class="navbar navbar-expand-lg bg-secondary " data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             eCommerce Store

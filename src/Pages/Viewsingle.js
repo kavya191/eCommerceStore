@@ -47,6 +47,8 @@ const Viewsingle = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              marginTop:"10px",
+              paddingTop:"10px"
             }}
           />
           <Card.Body>
